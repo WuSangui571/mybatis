@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="02-junit-test" />
         <module name="01-introduction" />
+        <module name="03-crud" />
       </profile>
     </annotationProcessing>
   </component>

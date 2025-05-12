@@ -1,4 +1,4 @@
-package com.sangui.mybatis.utils;
+package com.sangui.utils;
 
 
 import org.apache.ibatis.io.Resources;
@@ -26,7 +26,7 @@ public class SqlSessionUtil {
         try {
             SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
             sqlSessionFactory = sqlSessionFactoryBuilder.build(Resources.getResourceAsStream("mybatis-config.xml"));
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

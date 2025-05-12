@@ -201,3 +201,43 @@ XML是什么?
    以后注意了，只要你的autoCommit是true，就表示没有开启事务。
 
    只有你的autoCommit是false的时候，才表示开启了事务
+
+### 7. 关于MyBatis集成日志组件。让我们调试起来更加方便。
+
+1. MyBatis常见的日志组件有哪些呢？
+
+   + SLF4J
+   + LOG4J
+   + LOG4J2
+   + STDOUT_LOGGING
+   + ...
+
+2. 其中STDOUT_LOGGING是标准日志，MyBatis已经实现了这种标准日志，MyBatis框架本身已经实现了这种标准。
+
+   只要开启即可，在mybatis-config.xml文件中使用settings标签配置进行开启
+
+   ```xml
+   <settings>
+           <setting name="logImpl" value="SLF4J"/>
+   </settings>
+   ```
+
+   这个标签在编写的时候要注意，它应该出现在environment标签之前，注意顺序，当然不需要记忆这个顺序。因为有dtd文件约束，我们只需要参考dtd约束即可。
+
+3. 基础logback日志框架实现了lf4j标准（slf：日志门面，日志标准）
+
+   1. 引入logback的依赖。
+
+      ```xml
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>1.5.18</version>
+      </dependency>
+      ```
+
+   2. 引入logback所必须的xml配置文件。
+
+      这个配置文件的名字必须叫做：logback.xml或者logback-test.xml，不能是其他名字。
+
+      这个配置文件必须放到类的根路径下，不能是其他位置。

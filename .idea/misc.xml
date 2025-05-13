@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/01-introduction/pom.xml" />
         <option value="$PROJECT_DIR$/02-junit-test/pom.xml" />
         <option value="$PROJECT_DIR$/03-crud/pom.xml" />
+        <option value="$PROJECT_DIR$/04-configuration/pom.xml" />
       </list>
     </option>
   </component>

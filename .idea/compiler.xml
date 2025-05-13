@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="02-junit-test" />
         <module name="01-introduction" />
         <module name="03-crud" />
+        <module name="02-junit-test" />
+        <module name="04-configuration" />
       </profile>
     </annotationProcessing>
   </component>

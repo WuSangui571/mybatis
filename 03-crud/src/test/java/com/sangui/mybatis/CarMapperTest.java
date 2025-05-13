@@ -1,13 +1,16 @@
 package com.sangui.mybatis;
 
 
+import com.mysql.cj.Session;
 import com.sangui.pojo.Car;
 import com.sangui.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import javax.swing.plaf.PanelUI;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,6 +41,57 @@ public class CarMapperTest {
 
         int count = sqlSession.insert("insertCar", car);
         System.out.println("改变条数：" + count);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+    @Test
+    public void TestDeleteById() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        Car car = new Car();
+        car.setId(48L);
+        int count = sqlSession.delete("deleteById", car);
+        System.out.println("改变条数：" + count);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void TestUpdateById() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        Car car = new Car(46L,"10050","BMWW",300.0,"2024-11-11","电车");
+
+        int count = sqlSession.update("updateById", car);
+        System.out.println("改变条数：" + count);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void TestSelectById() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+
+        Object car = sqlSession.selectOne("selectById", 46L);
+        System.out.println(car);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void TestSelectALL() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+
+        List<Car> cars = sqlSession.selectList("selectAll");
+        System.out.println(cars);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
+    public void TestNameSpace() throws IOException {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+
+        List<Car> cars = sqlSession.selectList("CarMapper.selectAll");
+        System.out.println(cars);
         sqlSession.commit();
         sqlSession.close();
     }

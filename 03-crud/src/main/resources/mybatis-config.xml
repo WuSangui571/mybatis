@@ -19,5 +19,6 @@
     </environments>
     <mappers>
         <mapper resource="CarMapper.xml"/>
+        <mapper resource="UserMapper.xml"/>
     </mappers>
 </configuration>

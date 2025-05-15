@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--Schema的使用-->
+<orders xmlns="https://www.sangui.top"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.sangui.top order.xsd ">
+
+    <order orderId="ID10001">
+        <id>10001</id>
+        <address>沈阳市浑南区</address>
+        <bookTime>2022-02-02T09:00:00</bookTime>
+        <amount>111.11</amount>
+    </order>
+    <order orderId="ID10002">
+        <id>10002</id>
+        <address>沈阳市皇姑区</address>
+        <bookTime>2023-03-03T03:00:00</bookTime>
+        <amount>333.33</amount>
+    </order>
+
+    <order orderId="ID10003">
+        <id>10003</id>
+        <address>沈阳市大东区</address>
+        <bookTime>2024-04-04T04:00:00</bookTime>
+        <amount>444.44</amount>
+    </order>
+</orders>

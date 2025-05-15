@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE users [
+        <!ELEMENT users (user+)>
+        <!ELEMENT user (id,name,password )>
+
+        <!ELEMENT id (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT password (#PCDATA)>
+
+        <!ATTLIST user
+                id ID #REQUIRED
+                country CDATA #IMPLIED
+                plantform CDATA #FIXED "ittimeline"
+                source (Android|iOS|PC|WeChat) "Android"
+                >
+        ]>
+<!--
+定义根标签是Users
+-->
+<users>
+    <user id = "U10001" country = "China" source = "Android">
+        <id>10001</id>
+        <name>sangui</name>
+        <password>333</password>
+<!--        <salary>salary > 1000 &amp; salary &lt; 3000</salary>-->
+    </user>
+    <user id = "U10002" country = "US" source = "iOS">
+        <id>10002</id>
+        <name>Jack</name>
+        <password>abc</password>
+<!--        <salary>-->
+<!--            <![CDATA[-->
+<!--            salary > 1000 & salary < 3000-->
+<!--            ]]>-->
+<!--        </salary>-->
+    </user>
+</users>

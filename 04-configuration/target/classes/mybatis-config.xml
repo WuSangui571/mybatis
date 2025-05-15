@@ -11,10 +11,9 @@
 <!--&lt;!&ndash;        <property name="jdbc.username" value="root"/>&ndash;&gt;-->
 <!--&lt;!&ndash;        <property name="jdbc.password" value="333"/>&ndash;&gt;-->
 <!--    </properties>-->
-    <properties resource="jdbc.properties"/>
+<!--    <properties resource="jdbc.properties"/>-->
 
-    <!--使用url绝对路径（不推荐）-->
-<!--    <properties url="file:///D:/jdbc.properties"/>-->
+    <properties url="file:///D:/jdbc.properties"/>
     <settings>
         <setting name="logImpl" value="SLF4J"/>
     </settings>

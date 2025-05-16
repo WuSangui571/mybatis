@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--定义user标签为根标签，该标签下可以有1-n个user标签-->
+<!ELEMENT users (user+)>
+<!--user标签下必须有三个制定了顺序的子标签-->
+<!ELEMENT user (id,name,password,salary)>
+
+<!--id name password 这三个标签的类型都是字符串-->
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+<!ELEMENT salary (#PCDATA)>
+
+<!--
+    user标签必须包含 id 选项，属性类型是 ID，约束条件是#REQUIRED
+    user标签必须包含 country 选项，属性类型是 CDATA，约束条件是#IMPLIED
+    user标签必须包含 plantform 选项，属性类型是 CDATA，约束条件是#FIXED
+    user标签必须包含 source 选项，属性类型是 枚举，默认值是Android
+-->
+<!ATTLIST user
+        id ID #REQUIRED
+        country CDATA #IMPLIED
+        plantform CDATA #FIXED "ittimeline"
+        source (Android|iOS|PC|WeChat) "Android"
+>

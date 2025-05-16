@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/04-configuration/pom.xml" />
         <option value="$PROJECT_DIR$/00-xml/pom.xml" />
         <option value="$PROJECT_DIR$/00-dom4j/pom.xml" />
+        <option value="$PROJECT_DIR$/05-parse-xml-by-dom4j/pom.xml" />
+        <option value="$PROJECT_DIR$/sanguibatis/pom.xml" />
       </list>
     </option>
   </component>

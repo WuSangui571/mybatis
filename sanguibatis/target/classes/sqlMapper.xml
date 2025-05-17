@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<mapper namespace="CarMapper">
+    <insert id="insertCar">
+        INSERT INTO t_car(id,car_num,brand,guide_price,produce_time,car_type)
+        VALUES (NULL,#{carNum},#{brand},#{guidePrice},#{produceTime},#{carType})
+    </insert>
+    <delete id="deleteById">
+        DELETE FROM t_car WHERE id = #{id}
+    </delete>
+
+    <update id="updateById">
+        UPDATE t_car
+        SET car_num = #{carNum},brand = #{brand},guide_price = #{guidePrice},produce_time = #{produceTime},car_type = #{carType}
+        WHERE id = #{id}
+    </update>
+
+    <select id="selectById" resultType="com.sangui.pojo.Car">
+        SELECT id,car_num as carNum,brand,guide_price as guidePrice,produce_time as produceTime,car_type as carType
+        FROM t_car
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectAll" resultType="com.sangui.pojo.Car">
+        SELECT id,car_num as carNum,brand,guide_price as guidePrice,produce_time as produceTime,car_type as carType
+        FROM t_car
+    </select>
+</mapper>

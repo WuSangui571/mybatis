@@ -1,5 +1,7 @@
-package com.sangui.sanguibatis.core;
+package com.sangui.sanguibatis.core.transaction;
 
+
+import java.sql.Connection;
 
 /**
  * @Author: sangui
@@ -26,4 +28,14 @@ public interface Transaction {
      * 关闭事务
      */
     void close();
+
+    /**
+     * 开启数据库连接，内部只会开一次
+     */
+    void openConnection();
+
+    /**
+     * 获取Connection对象
+     */
+    Connection getConnection();
 }

@@ -15,6 +15,12 @@
     <file url="file://$PROJECT_DIR$/04-configuration/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/05-parse-xml-by-dom4j/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/05-parse-xml-by-dom4j/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-mybatis-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-mybatis-web/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-web-mybatis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-web-mybatis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/06-web/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sanguibatis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sanguibatis/src/main/resources" charset="UTF-8" />
   </component>

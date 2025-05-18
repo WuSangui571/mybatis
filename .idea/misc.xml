@@ -12,7 +12,16 @@
         <option value="$PROJECT_DIR$/00-dom4j/pom.xml" />
         <option value="$PROJECT_DIR$/05-parse-xml-by-dom4j/pom.xml" />
         <option value="$PROJECT_DIR$/sanguibatis/pom.xml" />
+        <option value="$PROJECT_DIR$/06-web/pom.xml" />
+        <option value="$PROJECT_DIR$/06-web-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/06-mybatis-web/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/06-web-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/06-web/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="ms-21" project-jdk-type="JavaSDK">

@@ -13,8 +13,13 @@
         <module name="04-configuration" />
         <module name="00-xml" />
         <module name="00-dom4j" />
+        <module name="06-mybatis-web" />
         <module name="sanguibatis" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="06-web" target="21" />
+      <module name="06-web-mybatis" target="21" />
+    </bytecodeTargetLevel>
   </component>
 </project>

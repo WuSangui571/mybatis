@@ -21,6 +21,7 @@ public class UnPooledDataSource implements DataSource {
     private String password;
 
     public UnPooledDataSource(String driver, String url, String username, String password) {
+
         try {
             // 注册驱动
             Class.forName(driver);
@@ -35,8 +36,7 @@ public class UnPooledDataSource implements DataSource {
     @Override
     public Connection getConnection() throws SQLException {
         // 注册驱动
-        Connection connection = DriverManager.getConnection(url, username, password);
-        return null;
+        return DriverManager.getConnection(url, username, password);
     }
 
     @Override

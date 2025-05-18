@@ -15,7 +15,6 @@ import org.dom4j.io.SAXReader;
 
 import javax.sql.DataSource;
 import java.io.InputStream;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -48,7 +47,7 @@ public class SqlSessionFactoryBuilder {
             String xPath = "//environments";
             Element environments = (Element) document.selectSingleNode(xPath);
             String defaultEnvironmentId = environments.attributeValue("default");
-            System.out.println("defaultEnvironmentId = " + defaultEnvironmentId);
+            //System.out.println("defaultEnvironmentId = " + defaultEnvironmentId);
             xPath = "//environment";
             Element defaultEnvironment = (Element) document
                     .selectSingleNode(xPath + "[@id='" + defaultEnvironmentId + "']");
@@ -59,7 +58,7 @@ public class SqlSessionFactoryBuilder {
 
             // 获取事务管理器
             Element transactionManager =  defaultEnvironment.element("transactionManager");
-            Transaction transaction = getConnection(transactionManager,dataSource);
+            Transaction transaction = getTransaction(transactionManager,dataSource);
 
             // 获取 mappedStatementMap
             xPath = "//mapper";
@@ -133,7 +132,7 @@ public class SqlSessionFactoryBuilder {
         }
         return dataSource;
     }
-    private Transaction getConnection(Element transactionManager, DataSource dataSource) {
+    private Transaction getTransaction(Element transactionManager, DataSource dataSource) {
         String transactionManagerType = transactionManager.attributeValue("type").trim().toUpperCase();
         Transaction transaction = null;
         if (JDBC_TRANSACTION.equals(transactionManagerType)){

@@ -39,7 +39,6 @@ public class SqlSessionFactory {
      */
     public SqlSession openSession(SqlSessionFactory sqlSessionFactory) {
         transaction.openConnection();
-        SqlSession sqlSession = new SqlSession(this);
-        return sqlSession;
+        return new SqlSession(this);
     }
 }

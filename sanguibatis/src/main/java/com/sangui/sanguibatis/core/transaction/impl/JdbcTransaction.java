@@ -34,9 +34,11 @@ public class JdbcTransaction implements Transaction {
 
     @Override
     public void openConnection(){
-        if (dataSource == null) {
+        if (connection == null) {
             try {
                 connection = dataSource.getConnection();
+                //System.out.println(autoCommit);
+                connection.setAutoCommit(autoCommit);
             }catch (SQLException e){
                 e.printStackTrace();
             }

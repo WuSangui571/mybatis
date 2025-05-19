@@ -44,7 +44,7 @@ public class SqlSessionUtil {
             sqlSession = sqlSessionFactory.openSession();
             threadLocal.set(sqlSession);
         }
-        return sqlSessionFactory.openSession();
+        return sqlSession;
     }
 
     /**

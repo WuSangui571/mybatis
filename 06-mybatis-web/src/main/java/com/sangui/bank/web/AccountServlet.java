@@ -1,8 +1,8 @@
 package com.sangui.bank.web;
 
 
-import com.sangui.bank.dao.exceptions.MoneyNotEnoughException;
-import com.sangui.bank.dao.exceptions.TransferException;
+import com.sangui.bank.exceptions.MoneyNotEnoughException;
+import com.sangui.bank.exceptions.TransferException;
 import com.sangui.bank.service.AccountService;
 import com.sangui.bank.service.impl.AccountServiceImpl;
 import lombok.SneakyThrows;

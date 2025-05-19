@@ -1,9 +1,8 @@
 package com.sangui.bank.service;
 
 
-import com.sangui.bank.dao.exceptions.MoneyNotEnoughException;
-import com.sangui.bank.dao.exceptions.TransferException;
-import com.sangui.bank.pojo.Account;
+import com.sangui.bank.exceptions.MoneyNotEnoughException;
+import com.sangui.bank.exceptions.TransferException;
 
 /**
  * @Author: sangui

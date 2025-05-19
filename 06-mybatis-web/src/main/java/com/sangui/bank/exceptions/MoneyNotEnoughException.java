@@ -1,4 +1,4 @@
-package com.sangui.bank.dao.exceptions;
+package com.sangui.bank.exceptions;
 
 
 /**

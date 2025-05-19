@@ -18,16 +18,12 @@ public class AccountDaoImpl implements AccountDao {
     @Override
     public Account selectByActno(String actno) {
         SqlSession sqlSession = SqlSessionUtil.openSession();
-        Account account = new Account();
-        account.setActno(actno);
-        Account resAccount = sqlSession.selectOne("AccountMapper.selectByActno", account);
-        return resAccount;
+        return sqlSession.selectOne("AccountMapper.selectByActno", actno);
     }
 
     @Override
     public int updateByAccount(Account account) {
         SqlSession sqlSession = SqlSessionUtil.openSession();
-        int count = sqlSession.update("AccountMapper.updateByAccount", account);
-        return count;
+        return sqlSession.update("AccountMapper.updateByAccount", account);
     }
 }

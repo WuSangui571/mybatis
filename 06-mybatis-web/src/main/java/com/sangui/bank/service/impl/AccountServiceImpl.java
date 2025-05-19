@@ -2,8 +2,8 @@ package com.sangui.bank.service.impl;
 
 
 import com.sangui.bank.dao.AccountDao;
-import com.sangui.bank.dao.exceptions.MoneyNotEnoughException;
-import com.sangui.bank.dao.exceptions.TransferException;
+import com.sangui.bank.exceptions.MoneyNotEnoughException;
+import com.sangui.bank.exceptions.TransferException;
 import com.sangui.bank.dao.impl.AccountDaoImpl;
 import com.sangui.bank.pojo.Account;
 import com.sangui.bank.service.AccountService;
@@ -41,6 +41,7 @@ public class AccountServiceImpl implements AccountService {
         // 3.足，更新转入账户余额（update）
         count2 = accountDao.updateByAccount(toAct);
         if (count1 + count2 != 2) {
+            sqlSession.rollback();
             throw new TransferException("交易异常！");
         }
 

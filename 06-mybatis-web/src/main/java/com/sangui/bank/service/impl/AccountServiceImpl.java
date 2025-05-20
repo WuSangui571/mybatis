@@ -7,6 +7,7 @@ import com.sangui.bank.exceptions.TransferException;
 import com.sangui.bank.dao.impl.AccountDaoImpl;
 import com.sangui.bank.pojo.Account;
 import com.sangui.bank.service.AccountService;
+import com.sangui.bank.utils.GenerateDaoProxy;
 import com.sangui.bank.utils.SqlSessionUtil;
 import org.apache.ibatis.session.SqlSession;
 
@@ -17,7 +18,8 @@ import org.apache.ibatis.session.SqlSession;
  * @Version: 1.0
  */
 public class AccountServiceImpl implements AccountService {
-    AccountDao accountDao = new AccountDaoImpl();
+    //AccountDao accountDao = new AccountDaoImpl();
+    AccountDao accountDao = (AccountDao) GenerateDaoProxy.generate(SqlSessionUtil.openSession(), AccountDao.class);
     @Override
     public void transfer(String fromActno, String toActno, double money) throws MoneyNotEnoughException,TransferException {
         SqlSession sqlSession = SqlSessionUtil.openSession();

@@ -125,38 +125,141 @@ mybatis小技巧
      brand like concat("%","${brand}","%")
      ```
 
-   5. 别名机制
+5. 别名机制
 
-      ```
-      <!--起别名-->
-      <typeAliases>
-          <typeAlias type="com.sangui.pojo.Car"/>
-      	<typeAlias type="com.sangui.pojo.Log"/>
-      </typeAliases>
-      ```
+   ```
+   <!--起别名-->
+   <typeAliases>
+       <typeAlias type="com.sangui.pojo.Car"/>
+   	<typeAlias type="com.sangui.pojo.Log"/>
+   </typeAliases>
+   ```
 
-      ```
-      <!--起别名-->
-      <typeAliases>
-          <package name="com.sangui.pojo"/>
-      </typeAliases>
-      ```
+   ```
+   <!--起别名-->
+   <typeAliases>
+       <package name="com.sangui.pojo"/>
+   </typeAliases>
+   ```
 
-      type是指定给哪个类型其别名
-      alias是指定别名
-      别名不区分大小写
-      但是namespace不能起别名，只能resultType起别名
-      <typeAlias type="com.sangui.pojo.Car" alias="Car"/>
-      <typeAlias type="com.sangui.pojo.Car"/>
-      其中alias是可以省略的，有默认的别名，默认是这个类的简名，如com.sangui.pojo.Car的简名是Car
-      更加方便的是这个方式：
-      <package name="com.sangui.pojo"/>
-      将这个包下的所有的类自动起别名，别名就是类简名，不区分大小写
+   type是指定给哪个类型其别名
+   alias是指定别名
+   别名不区分大小写
+   但是namespace不能起别名，只能resultType起别名
+   <typeAlias type="com.sangui.pojo.Car" alias="Car"/>
+   <typeAlias type="com.sangui.pojo.Car"/>
+   其中alias是可以省略的，有默认的别名，默认是这个类的简名，如com.sangui.pojo.Car的简名是Car
+   更加方便的是这个方式：
+   <package name="com.sangui.pojo"/>
+   将这个包下的所有的类自动起别名，别名就是类简名，不区分大小写
 
-   6. mybatis-config.xml文件中的mappers标签
+6. Imybatis-config.xml文件中的mappers标签
 
-      
+   mappers标签可以有三个
 
-   
+   ```
+   <mapper url=""/>
+   <mapper resource=""/>
+   <mapper class=""/>
+   ```
+
+   + resource
+
+     从类的根路径下查找资源。
+
+   + url
+
+     以绝对路径的方式查找资源，不推荐，移植性差
+
+   + class
+
+     全限定接口名（带有包名）
+
+     这个位置提供的是mapper接口的全限定类名，必须带有包名的
+
+     思考：之前url里写的是XXXMapper.xml文件，指定接口名有啥用？
+
+     ----回答：若提供这个接口，会从这个接口的同级目录下去找这个XXXMapper.xml文件，也就是说要在resources目录里新建和接口所在包结构一样的目录结构，里面放配置文件
+
+   还有种更好的方式，就是直接写包名，如
+
+   ```
+   <mappers>
+       <package name="com.sangui.mapper"/>
+   </mappers>
+   ```
+
+   道理同<mapper class=""/>，但class要写多个，而package只要写一个，以后都要在resources目录里新建和接口所在包结构一样的目录结构，里面放配置文件，以供这个<mapper class=""/>扫描到。
+
+7. IDEA配置模板文件
+
+   在`File`->`Setting`->`Editor`->`Code Style`->`File and Code Templates`可以自定义模板文件，比如`mybatis-config.xml`文件，下次新建这个文件时就不用直接写或者复制别处的代码了。这里只要设置`Name`为`MyBatis核心配置文件`（随意，只要看到你可以明白就行），设置`Extension`为`xml`（设置扩展类型为xml），设置`File name`为`mybatis-config`（设置文件名），而文件内容为
+
+   ```xml
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <!DOCTYPE configuration
+           PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+           "http://mybatis.org/dtd/mybatis-3-config.dtd">
+   <configuration>
+       <!--在 resources 目录下要有 JDBC 配置文件-->
+       <properties resource="jdbc.properties"/>
+       <settings>
+           <!--在 resources 目录下要有 Logback 配置文件-->
+           <setting name="logImpl" value="SLF4J"/>
+           <setting name="mapUnderscoreToCamelCase" value="true"/>
+       </settings>
+       <typeAliases>
+           <!--这里写你的 pojo 类的包名，如-->
+           <!--<package name="com.sangui.pojo"/>-->
+           <package name=""/>
+       </typeAliases>
+       <environments default="dev">
+           <environment id="dev">
+               <transactionManager type="JDBC"/>
+               <dataSource type="POOLED">
+                   <property name="driver" value="${jdbc.driver}"/>
+                   <property name="url" value="${jdbc.url}"/>
+                   <property name="username" value="${jdbc.username}"/>
+                   <property name="password" value="${jdbc.password}"/>
+               </dataSource>
+           </environment>
+       </environments>
+       <mappers>
+           <!--这里写你的 mapper 接口所在的包名，如-->
+           <!--<package name="com.sangui.mapper"/>-->
+           <package name=""/>
+       </mappers>
+   </configuration>
+   ```
+
+   类似的，你还可以设置`JDBC配置文件`，`Logback核心配置文件`，`MyBatis核心配置文件`，`XxxMapper.xml`，`SqlSession工具类`等文件的自定义的模板。
+
+8. 插入数据时自动生成主键
+
+   配置文件中加入两个属性，useGeneratedKeys 和 keyProperty
+
+   ```xml
+   <insert id="insertCarUseGeneratedKeys" useGeneratedKeys="true" keyProperty="id">
+       INSERT INTO t_car
+       VALUES (NULL,#{carNum},#{brand},#{guidePrice},#{produceTime},#{carType})
+   </insert>
+   ```
+
+   java程序中使用insertCarUseGeneratedKeys()方法而不是普通的insert()方法，使用后会自动将主键值赋值到方法传入的对象的对应属性上
+
+   ```java
+   @Test
+   public void testInsertCarUseGeneratedKeys() {
+       SqlSession sqlSession = SqlSessionUtil.openSession();
+       CarMapper mapper = sqlSession.getMapper(CarMapper.class);
+       Car car = new Car(null, "10086","比亚迪汉",7.98,"2022-11-11","燃油车");
+       mapper.insertCarUseGeneratedKeys(car);
+       Long generatedKeys = car.getId();
+       // 插入成功！该数据自动生成主键是：124
+       System.out.println("插入成功！该数据自动生成主键是：" + generatedKeys);
+       sqlSession.commit();
+       sqlSession.close();
+   }
+   ```
 
    

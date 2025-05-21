@@ -17,6 +17,18 @@ import java.util.List;
  */
 public class CarMapperTest {
     @Test
+    public void testInsertCarUseGeneratedKeys() {
+        SqlSession sqlSession = SqlSessionUtil.openSession();
+        CarMapper mapper = sqlSession.getMapper(CarMapper.class);
+        Car car = new Car(null, "10086","比亚迪汉",7.98,"2022-11-11","燃油车");
+        mapper.insertCarUseGeneratedKeys(car);
+        Long generatedKeys = car.getId();
+        System.out.println("插入成功！该数据自动生成主键是：" + generatedKeys);
+        sqlSession.commit();
+        sqlSession.close();
+    }
+
+    @Test
     public void selectByBrandLike() {
         SqlSession sqlSession = SqlSessionUtil.openSession();
         CarMapper mapper = sqlSession.getMapper(CarMapper.class);

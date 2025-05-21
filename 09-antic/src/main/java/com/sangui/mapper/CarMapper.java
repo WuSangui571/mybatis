@@ -21,4 +21,5 @@ public interface CarMapper {
     List<Car> selectGuidePriceByAscOrDesc(String descOrEsc);
     int deleteBatch(String ids);
     List<Car> selectByBrandLike(String brand);
+    int insertCarUseGeneratedKeys(Car car);
 }

@@ -16,7 +16,8 @@ import java.io.InputStream;
  */
 public class SqlSessionUtil {
     // 防止实例化
-    private SqlSessionUtil() {}
+    private SqlSessionUtil() {
+    }
 
     private static SqlSessionFactory sqlSessionFactory;
     private static final ThreadLocal<SqlSession> THREAD_LOCAL = new ThreadLocal<>();
@@ -27,6 +28,7 @@ public class SqlSessionUtil {
 
     /**
      * 初始化 SqlSessionFactory
+     *
      * @param configLocation MyBatis 配置文件路径
      */
     public static void init(String configLocation) {
@@ -46,6 +48,7 @@ public class SqlSessionUtil {
 
     /**
      * 获取 SqlSession
+     *
      * @param autoCommit 是否自动提交事务
      */
     public static SqlSession openSession(boolean autoCommit) {
@@ -90,6 +93,7 @@ public class SqlSessionUtil {
 
     /**
      * 快速获取 Mapper
+     *
      * @param type Mapper 接口类型
      * @param <T>  Mapper 类型
      * @return Mapper 实例

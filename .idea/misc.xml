@@ -19,6 +19,9 @@
         <option value="$PROJECT_DIR$/07-crud-byinterface/pom.xml" />
         <option value="$PROJECT_DIR$/08-crud-byinterface/pom.xml" />
         <option value="$PROJECT_DIR$/09-antic/pom.xml" />
+        <option value="$PROJECT_DIR$/09-antic/10-param/pom.xml" />
+        <option value="$PROJECT_DIR$/10-param-type/pom.xml" />
+        <option value="$PROJECT_DIR$/11-select-part/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -26,6 +29,7 @@
         <option value="$PROJECT_DIR$/06-web-mybatis/pom.xml" />
         <option value="$PROJECT_DIR$/06-web/pom.xml" />
         <option value="$PROJECT_DIR$/07-crud-byinterface/pom.xml" />
+        <option value="$PROJECT_DIR$/09-antic/10-param/pom.xml" />
       </set>
     </option>
   </component>

@@ -27,8 +27,14 @@
     <file url="file://$PROJECT_DIR$/07-javassist/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/08-crud-byinterface/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/08-crud-byinterface/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/09-antic/10-param/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/09-antic/10-param/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/09-antic/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/09-antic/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/10-param-type/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/10-param-type/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/11-select-part/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/11-select-part/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sanguibatis/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sanguibatis/src/main/resources" charset="UTF-8" />
   </component>

@@ -18,8 +18,14 @@ import org.apache.ibatis.session.SqlSession;
  * @Version: 1.0
  */
 public class AccountServiceImpl implements AccountService {
+     // 不自动生成，自己写接口代码
     //AccountDao accountDao = new AccountDaoImpl();
-    AccountDao accountDao = (AccountDao) GenerateDaoProxy.generate(SqlSessionUtil.openSession(), AccountDao.class);
+
+    // 自己封装的自动生成代理
+    //AccountDao accountDao = (AccountDao) GenerateDaoProxy.generate(SqlSessionUtil.openSession(), AccountDao.class);
+
+    // 使用MyBatis的代理机制
+    private final AccountDao accountDao = SqlSessionUtil.openSession().getMapper(AccountDao.class);
     @Override
     public void transfer(String fromActno, String toActno, double money) throws MoneyNotEnoughException,TransferException {
         SqlSession sqlSession = SqlSessionUtil.openSession();

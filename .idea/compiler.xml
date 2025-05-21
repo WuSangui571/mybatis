@@ -15,12 +15,15 @@
         <module name="00-xml" />
         <module name="00-dom4j" />
         <module name="06-mybatis-web" />
+        <module name="08-crud-byinterface" />
         <module name="sanguibatis" />
+        <module name="09-antic" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="06-web" target="21" />
       <module name="06-web-mybatis" target="21" />
+      <module name="07-crud-byinterface" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>

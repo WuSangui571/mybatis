@@ -35,14 +35,15 @@ public class GenerateDaoProxy {
         for (Method method : declaredMethods) {
             StringBuilder methodCode = new StringBuilder();
             /*
-            样板：
+            示例样板：
                 public Account selectByActno(String actno) {
                     SqlSession sqlSession = SqlSessionUtil.openSession();
                     return sqlSession.selectOne("com.sangui.bank.dao.AccountDao.selectByActno", actno);
                 }
              */
             methodCode.append("public ");
-            methodCode.append(method.getReturnType().getName());
+            String methodReturnType = method.getReturnType().getName();
+            methodCode.append(methodReturnType);
             methodCode.append(" ");
             methodCode.append(method.getName());
             methodCode.append("(");
@@ -53,18 +54,18 @@ public class GenerateDaoProxy {
                     methodCode.append(", ");
                 }
             }
-            methodCode.append(") {org.apache.ibatis.session.SqlSession sqlSession = com.sangui.utils.SqlSessionUtil.openSession();");
+            methodCode.append(") {org.apache.ibatis.session.SqlSession sqlSession = com.sangui.bank.utils.SqlSessionUtil.openSession();");
 
             String sqlId = daoInterface.getName() + "." + method.getName();
             SqlCommandType sqlCommandType = sqlSession.getConfiguration().getMappedStatement(sqlId).getSqlCommandType();
             if (SqlCommandType.INSERT == sqlCommandType) {
-                methodCode.append("return sqlSession.insert(\"" + sqlId + "\", arg0)");
+                methodCode.append("return sqlSession.insert(\"" + sqlId + "\", arg0);");
             } else if (SqlCommandType.DELETE == sqlCommandType) {
-                methodCode.append("return sqlSession.delete(\"" + sqlId + "\", arg0)");
+                methodCode.append("return sqlSession.delete(\"" + sqlId + "\", arg0);");
             } else if (SqlCommandType.UPDATE == sqlCommandType) {
-                methodCode.append("return sqlSession.update(\"" + sqlId + "\", arg0)");
+                methodCode.append("return sqlSession.update(\"" + sqlId + "\", arg0);");
             } else if (SqlCommandType.SELECT == sqlCommandType) {
-                methodCode.append("return sqlSession.selectOne(\"" + sqlId + "\", arg0)");
+                methodCode.append("return (" + methodReturnType + ") sqlSession.selectOne(\"" + sqlId + "\", arg0);");
             }
 
             methodCode.append("}");

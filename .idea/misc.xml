@@ -22,6 +22,7 @@
         <option value="$PROJECT_DIR$/09-antic/10-param/pom.xml" />
         <option value="$PROJECT_DIR$/10-param-type/pom.xml" />
         <option value="$PROJECT_DIR$/11-select-part/pom.xml" />
+        <option value="$PROJECT_DIR$/12-dynamic-sql/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

@@ -20,6 +20,7 @@
         <module name="03-crud" />
         <module name="05-parse-xml-by-dom4j" />
         <module name="04-configuration" />
+        <module name="12-dynamic-sql" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

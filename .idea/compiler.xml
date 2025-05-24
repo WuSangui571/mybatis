@@ -16,10 +16,12 @@
         <module name="08-crud-byinterface" />
         <module name="sanguibatis" />
         <module name="09-antic" />
+        <module name="mydbcp" />
         <module name="07-javassist" />
         <module name="14-cache" />
         <module name="10-param-type" />
         <module name="13-advanced-mapping" />
+        <module name="sanguicp" />
         <module name="03-crud" />
         <module name="05-parse-xml-by-dom4j" />
         <module name="04-configuration" />

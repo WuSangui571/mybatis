@@ -26,6 +26,8 @@
         <option value="$PROJECT_DIR$/13-advanced-mapping/pom.xml" />
         <option value="$PROJECT_DIR$/14-cache/pom.xml" />
         <option value="$PROJECT_DIR$/15-generator1/pom.xml" />
+        <option value="$PROJECT_DIR$/mydbcp/pom.xml" />
+        <option value="$PROJECT_DIR$/sanguicp/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

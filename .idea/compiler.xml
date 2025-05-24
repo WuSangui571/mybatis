@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="15-generator1" />
         <module name="11-select-part" />
         <module name="01-introduction" />
         <module name="02-junit-test" />
@@ -16,7 +17,9 @@
         <module name="sanguibatis" />
         <module name="09-antic" />
         <module name="07-javassist" />
+        <module name="14-cache" />
         <module name="10-param-type" />
+        <module name="13-advanced-mapping" />
         <module name="03-crud" />
         <module name="05-parse-xml-by-dom4j" />
         <module name="04-configuration" />
